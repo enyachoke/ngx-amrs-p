@@ -1,0 +1,29 @@
+[
+    {
+        "path": "hiv",
+        "location": "./assets/hiv-module.umd.js",
+        "moduleName": "HivModuleModule",
+        "description": "AMPATH HIV module",
+        "label":"HIV",
+        "registered": true,
+        "icon":"H"
+    },
+    {
+        "path": "cdm",
+        "location": "./assets/cdm-module.umd.js",
+        "moduleName": "CdmModuleModule",
+        "description": "AMPATH CDM module",
+        "label":"CDM",
+        "registered": true,
+        "icon":"C"
+    },
+    {
+        "path": "oncology",
+        "location": "./assets/oncology-module.umd.js",
+        "moduleName": "OncologyModuleModule",
+        "description": "AMPATH Oncology module",
+        "label":"Oncology",
+        "registered": true,
+        "icon":"O"
+    }
+]

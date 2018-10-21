@@ -1,0 +1,28 @@
+<div class="wrapper" [class.sidebar-mini]="cmnSrv.dashboardState.sidebarMiniToggle">
+    <div class="sidebar-panel">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="main-panel">
+        <app-navbar [label]="'Patient Dashboard'"></app-navbar>
+        <div class="panel-content">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="card">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+                <div class="col-md-2">
+
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            Summary
+                        </a>
+                        <a *ngFor="let item of rightNavigationRoutes;let i = index;" href="#" class="list-group-item list-group-item-action">
+                            {{item.label}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <app-footer></app-footer>
+        </div>
+    </div>

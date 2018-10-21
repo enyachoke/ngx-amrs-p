@@ -8,7 +8,11 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,9 +27,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@webcomponents/custom-elements/custom-elements.min.js",
+              "node_modules/systemjs/dist/system.src.js"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/style"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -115,6 +127,146 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "hiv-module": {
+      "root": "projects/hiv-module",
+      "sourceRoot": "projects/hiv-module/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/hiv-module/tsconfig.lib.json",
+            "project": "projects/hiv-module/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hiv-module/src/test.ts",
+            "tsConfig": "projects/hiv-module/tsconfig.spec.json",
+            "karmaConfig": "projects/hiv-module/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/hiv-module/tsconfig.lib.json",
+              "projects/hiv-module/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "cdm-module": {
+      "root": "projects/cdm-module",
+      "sourceRoot": "projects/cdm-module/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cdm-module/tsconfig.lib.json",
+            "project": "projects/cdm-module/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cdm-module/src/test.ts",
+            "tsConfig": "projects/cdm-module/tsconfig.spec.json",
+            "karmaConfig": "projects/cdm-module/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cdm-module/tsconfig.lib.json",
+              "projects/cdm-module/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "oncology-module": {
+      "root": "projects/oncology-module",
+      "sourceRoot": "projects/oncology-module/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/oncology-module/tsconfig.lib.json",
+            "project": "projects/oncology-module/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/oncology-module/src/test.ts",
+            "tsConfig": "projects/oncology-module/tsconfig.spec.json",
+            "karmaConfig": "projects/oncology-module/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/oncology-module/tsconfig.lib.json",
+              "projects/oncology-module/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-amrs-core": {
+      "root": "projects/ngx-amrs-core",
+      "sourceRoot": "projects/ngx-amrs-core/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-amrs-core/tsconfig.lib.json",
+            "project": "projects/ngx-amrs-core/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-amrs-core/src/test.ts",
+            "tsConfig": "projects/ngx-amrs-core/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-amrs-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-amrs-core/tsconfig.lib.json",
+              "projects/ngx-amrs-core/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

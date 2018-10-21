@@ -1,0 +1,23 @@
+<div class="sidebar" [class.hide]="cmnSrv.dashboardState.sidebarToggle">
+  <div class="sidebar-header align-middle">
+    <!-- <img class="brandImg" src="http://via.placeholder.com/60x60" alt="brandImg"> -->
+    <span class="text-uppercase p-3">AP</span>
+    <strong class="heading text-uppercase d-inline-block mini-hide">AMRS POC</strong>
+  </div>
+  <hr class="underline">
+  <div class="sidebar-body">
+    <ul>
+      <li class="sidebar-item" [class.active]="temp2.isActive" #temp2="routerLinkActive" routerLinkActive
+        [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="'patient-info'"><i class="material-icons">I</i><strong class="mini-hide text-capitalize ">Patient
+            Info</strong><span class="arrow mini-hide"></span></a>
+      </li>
+      <li *ngFor="let item of existingRoutes$ | async;let i = index;" class="sidebar-item" [class.active]="temp.isActive"
+        #temp="routerLinkActive" routerLinkActive [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="item.path"><i class="material-icons">{{item.icon}}</i><strong class="mini-hide text-capitalize ">{{item.label}}</strong><span
+            class="arrow mini-hide"></span></a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="!cmnSrv.dashboardState.sidebarToggle" class="sidebarOutside" (click)="cmnSrv.sidebarToggle()"></div>

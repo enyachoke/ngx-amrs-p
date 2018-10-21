@@ -16,6 +16,32 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "hiv-module": [
+        "dist/hiv-module"
+      ],
+      "hiv-module/*": [
+        "dist/hiv-module/*"
+      ],
+      "cdm-module": [
+        "dist/cdm-module"
+      ],
+      "cdm-module/*": [
+        "dist/cdm-module/*"
+      ],
+      "oncology-module": [
+        "dist/oncology-module"
+      ],
+      "oncology-module/*": [
+        "dist/oncology-module/*"
+      ],
+      "ngx-amrs-core": [
+        "dist/ngx-amrs-core"
+      ],
+      "ngx-amrs-core/*": [
+        "dist/ngx-amrs-core/*"
+      ]
+    }
   }
 }

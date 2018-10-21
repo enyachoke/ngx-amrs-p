@@ -1,0 +1,24 @@
+<nav class="navbar navigation-bar"  [class.hidden]="cmnSrv.dashboardState.navbarToggle" [class.sidebar-hidden]="cmnSrv.dashboardState.sidebarToggle">
+  <div class="nav-toggle-btn" [class.open]="!cmnSrv.dashboardState.sidebarToggle" (click)="cmnSrv.sidebarToggle()">
+    <span *ngFor="let number of [0,1,2]"></span>
+  </div>
+  <div class="navbar-brand">
+    <a>
+      AMRS POC
+    </a>
+  </div>
+  
+  <ul class="left-ul">
+    <li>
+      <button id="minimizeSidebar" class="btn btn-just-icon btn-round btn-light" (click)="cmnSrv.sidebarMiniToggle()">
+        <i *ngIf="!cmnSrv.dashboardState.sidebarMiniToggle" class="material-icons sd-visible">more_vert</i>
+        <i *ngIf="cmnSrv.dashboardState.sidebarMiniToggle" class="material-icons sdm-visible">view_list</i>
+      </button>
+    </li>
+    <li class="nav-item">{{label}}</li>
+  </ul>
+  <ul class="right-ul">
+    <li class="nav-item"><i class="material-icons">notifications</i></li>
+    <li class="nav-item"><i class="material-icons">person</i></li>
+  </ul>
+</nav>
